@@ -495,3 +495,44 @@ The AI Assistant architecture achieves:
 **Total Lines**: ~600 (excluding tests & docs)  
 **Complexity**: Low-to-Medium  
 **Scalability**: Single-user (easily adaptable for multi-user)
+
+# Architecture
+
+## High-Level Design
+The AI Assistant application is structured into modular components to ensure scalability, maintainability, and ease of development. Below is an overview of the architecture:
+
+### 1. **Frontend**
+- Built using Streamlit to provide an interactive web interface.
+- Handles user input (text or voice) and displays responses.
+
+### 2. **Backend Services**
+#### a. **Voice Service**
+- Converts speech to text using `speech_recognition`.
+- Converts text to speech using `gTTS`.
+
+#### b. **LLM Service**
+- Interacts with the Google Gemini API for generating responses.
+- Configurable parameters for response generation.
+
+#### c. **Memory Management**
+- Stores recent interactions to maintain context.
+- Limits memory size to a configurable number of interactions.
+
+### 3. **Configuration**
+- Centralized in `src/config.py`.
+- Uses environment variables for flexibility.
+
+### 4. **Utilities**
+- Logging utilities for debugging and monitoring.
+
+## Data Flow
+1. User interacts with the Streamlit interface (text or voice input).
+2. Input is processed by the Voice Service (if voice input).
+3. Processed input is sent to the LLM Service for response generation.
+4. Response is stored in memory and displayed to the user.
+
+## Dependencies
+- **Streamlit**: Web interface.
+- **Google Gemini API**: Generative AI.
+- **SpeechRecognition & gTTS**: Voice processing.
+- **Python**: Core language.

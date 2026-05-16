@@ -367,9 +367,7 @@ def main():
                 How can I help today?
             </div>
 
-            <div class="hero-subtitle">
-                Ask anything. Generate ideas. Solve problems.
-            </div>
+           
         </div>
         """, unsafe_allow_html=True)
 
